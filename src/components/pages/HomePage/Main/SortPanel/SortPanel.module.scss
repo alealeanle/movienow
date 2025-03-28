@@ -1,0 +1,89 @@
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0px 0px 17px 0px;
+  border-bottom: 1px solid $gray;
+
+  @include respondSmall {
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+}
+
+.sortElement {
+  display: flex;
+  align-items: center;
+}
+
+.checkboxWrap {
+  position: relative;
+}
+
+.checkbox {
+  position: absolute;
+  top: -8px;
+  left: 5px;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  cursor: pointer;
+
+  &:checked + .checkboxCheckMark {
+    position: absolute;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: -1px;
+      left: 10px;
+      width: 10px;
+      height: 2px;
+      background-color: white;
+      transform: rotate(-45deg);
+      pointer-events: none;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 1px;
+      left: 6px;
+      width: 7px;
+      height: 2px;
+      background-color: white;
+      transform: rotate(45deg);
+    }
+  }
+
+  &:checked ~ .checkboxFrame {
+    border: none;
+    background-color: $lightRed;
+  }
+}
+
+.checkboxFrame {
+  position: absolute;
+  top: -9px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid $gray;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.sortLabel {
+  font-size: 16px;
+  padding-left: 33px;
+  color: $gray;
+  cursor: pointer;
+  user-select: none;
+}

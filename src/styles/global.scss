@@ -1,0 +1,74 @@
+@forward 'fonts';
+@forward 'breakpoints';
+@forward 'colors';
+@forward 'mixins';
+@forward 'icons';
+@use 'colors' as *;
+@use 'mixins' as *;
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+button {
+  color: inherit;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1;
+  color: white;
+  background-color: $bgColor;
+}
+
+body.modalOpen {
+  overflow: hidden;
+}
+
+._container {
+  padding: 40px 260px;
+
+  @include respondXXLarge {
+    padding: 40px 200px;
+  }
+
+  @include respondXLarge {
+    padding: 40px 100px;
+  }
+
+  @include respondMLarge {
+    padding: 40px 50px;
+  }
+
+  @include respondMedium {
+    padding: 35px 25px;
+  }
+}

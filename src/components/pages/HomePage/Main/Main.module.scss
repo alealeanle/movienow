@@ -1,0 +1,42 @@
+.main {
+  flex: 1 1 auto;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0px 0px 16px 0px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0px;
+  gap: 24px;
+
+  @include respondSmall {
+    padding: 0px;
+  }
+}
+
+.notFoundMovies {
+  margin: 20px 0px 0px 0px;
+  font-size: 32px;
+  font-weight: 500;
+
+  @include respondXLarge {
+    font-size: 24px;
+  }
+
+  @include respondMLarge {
+    font-size: 22px;
+  }
+
+  @include respondMedium {
+    font-size: 18px;
+  }
+
+  @include respondSmall {
+    font-size: 16px;
+  }
+}

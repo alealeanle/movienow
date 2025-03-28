@@ -1,0 +1,32 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px;
+  background-color: $lightRed;
+  box-shadow: 7px 0px 0px 8px rgba(27, 27, 27, 0.28);
+
+  @include respondSmall {
+    padding: 20px;
+  }
+}
+
+.text {
+  font-size: 24px;
+  color: $bgColor;
+
+  @include respondSmall {
+    text-align: center;
+    font-size: 22px;
+  }
+}
+
+.link {
+  font-size: 32px;
+  color: black;
+  text-decoration: underline;
+
+  @include respondSmall {
+    font-size: 24px;
+  }
+}

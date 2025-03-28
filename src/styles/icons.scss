@@ -1,0 +1,51 @@
+@use 'mixins' as *;
+
+@font-face {
+  font-family: 'icon';
+  src: url('@/assets/fonts/icon.eot?hyzlue');
+  src:
+    url('@/assets/fonts/icon.eot?hyzlue#iefix') format('embedded-opentype'),
+    url('@/assets/fonts/icon.ttf?hyzlue') format('truetype'),
+    url('@/assets/fonts/icon.woff?hyzlue') format('woff'),
+    url('@/assets/fonts/icon.svg?hyzlue#icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow:before {
+  content: '\e901';
+  margin: 0px 20px 0px 0px;
+  font-size: 16px;
+  color: #fb5151;
+}
+.icon-movie:before {
+  content: '\e900';
+  margin: 0px 0px 0px 12px;
+  font-size: 16px;
+  color: #f92b2b;
+
+  @include respondMedium {
+    font-size: 14px;
+  }
+
+  @include respondSmall {
+    margin: 0px 0px 0px 4px;
+  }
+}
