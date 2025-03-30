@@ -1,7 +1,14 @@
 <template>
   <li :class="[s.card, styleForHomePage && s._transition]">
     <div :class="s.poster">
-      <img :src="movie.poster" alt="poster" />
+      <img
+        v-if="typeof index === 'number' && index < 3"
+        v-lazy="movie.poster"
+        alt="poster"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <img v-else v-lazy="movie.poster" alt="poster" />
     </div>
     <div :class="s.info">
       <div :class="s.infoHeader">
@@ -48,6 +55,7 @@ import s from './Card.module.scss';
 defineProps<{
   movie: Movie;
   styleForHomePage?: boolean;
+  index?: number;
 }>();
 
 const router = useRouter();

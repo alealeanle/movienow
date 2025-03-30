@@ -36,6 +36,7 @@ export default defineConfig({
         ],
       },
       workbox: {
+        cleanupOutdatedCaches: true,
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/mashroom-movies-api\.netlify\.app\/api\//,
@@ -45,6 +46,20 @@ export default defineConfig({
               expiration: {
                 maxEntries: 50,
                 maxAgeSeconds: 60 * 60 * 24,
+              },
+            },
+          },
+          {
+            urlPattern: /^https:\/\/image\.openmoviedb\.com\/kinopoisk-images\//,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'movie-poster-cache',
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 60 * 24 * 7,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
               },
             },
           },
