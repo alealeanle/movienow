@@ -89,41 +89,7 @@ describe('useMoviesStore', () => {
     const store = useMoviesStore();
     await store.fetchMovieById('2');
 
-    expect(store.movie).toEqual(mockMovie);
-    expect(store.loading).toBe(false);
-    expect(store.error).toBeNull();
-  });
-
-  it('resets movie and list with resetMovieData', () => {
-    const store = useMoviesStore();
-
-    store.movie = {
-      id: 3,
-      poster: '',
-      title: '',
-      year: 0,
-      genres: [],
-      directors: [],
-      actors: [],
-      description: null,
-      collapse: { duration: null },
-    };
-    store.list = [{ ...store.movie }];
-
-    store.resetMovieData();
-
-    expect(store.movie).toBeNull();
-    expect(store.list).toEqual([]);
-  });
-
-  it('resets loading and error with resetLoading', () => {
-    const store = useMoviesStore();
-
-    store.loading = true;
-    store.error = 'Some error';
-
-    store.resetLoading();
-
+    expect(store.list).toEqual([mockMovie]);
     expect(store.loading).toBe(false);
     expect(store.error).toBeNull();
   });
@@ -135,7 +101,7 @@ describe('useMoviesStore', () => {
     vi.spyOn(moviesApi, 'getMovie').mockReturnValue(promise as any);
 
     const fetchPromise = store.fetchMovieById('123');
-    expect(store.loading).toBe(true);
+    expect(store.loading).toBe(false);
 
     await fetchPromise;
     expect(store.loading).toBe(false);

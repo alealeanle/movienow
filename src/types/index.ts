@@ -14,8 +14,6 @@ export interface Movie {
 
 export interface MoviesState {
   list: Movie[];
-  movie: Movie | null;
   error: string | null;
   loading: boolean;
-  lastFetched: Record<number, number>;
 }

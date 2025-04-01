@@ -12,9 +12,11 @@
   }
 }
 
-._transition:hover {
-  transform: translateY(-8px);
-  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.35);
+@media any-hover {
+  ._transition:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.35);
+  }
 }
 
 .poster {

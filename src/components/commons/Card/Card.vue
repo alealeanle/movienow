@@ -1,5 +1,5 @@
 <template>
-  <li :class="[s.card, styleForHomePage && s._transition]">
+  <component :is="styleForHomePage ? 'li' : 'div'" :class="[s.card, styleForHomePage && s._transition]">
     <div :class="s.poster">
       <img
         v-if="typeof index === 'number' && index < 3"
@@ -44,7 +44,7 @@
         }}
       </p>
     </div>
-  </li>
+  </component>
 </template>
 
 <script setup lang="ts">

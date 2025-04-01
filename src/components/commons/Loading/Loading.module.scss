@@ -29,7 +29,7 @@
     border-top-color: black;
     border-right-color: black;
     transform: rotate(37deg);
-    animation: spin-outer 1.7s linear infinite;
+    animation: spin-outer 1s linear infinite;
   }
 
   .inner {
@@ -40,7 +40,7 @@
     transform: translate(-50%, -50%) rotate(-21deg);
     border-top-color: $red;
     border-right-color: $red;
-    animation: spin-inner 1.3s linear infinite;
+    animation: spin-inner 1300ms linear infinite;
   }
 
   @keyframes spin-outer {
@@ -54,10 +54,10 @@
 
   @keyframes spin-inner {
     0% {
-      transform: translate(-50%, -50%) rotate(-21deg);
+      transform: translate(-50%, -50%) rotate(339deg);
     }
     100% {
-      transform: translate(-50%, -50%) rotate(339deg);
+      transform: translate(-50%, -50%) rotate(-21deg);
     }
   }
 }

@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useMoviesStore } from '@/store';
 import Header from '@commons/Header';
@@ -27,22 +27,24 @@ import Card from '@commons/Card';
 import Footer from '@commons/Footer';
 import Loading from '@commons/Loading';
 import s from './FilmPage.module.scss';
+import type { Movie } from '@/types';
 
 const router = useRouter();
 const route = useRoute();
 const id = route.params.id as string;
 
 const movieStore = useMoviesStore();
-const movie = computed(() => movieStore.movie);
-const loading = computed(() => movieStore.loading);
+const movie = ref<Movie | null>(null);
+const loading = ref(true);
 
 onMounted(async () => {
-  movieStore.fetchMovieById(id);
+  movie.value = await movieStore.fetchMovieById(id);
+  loading.value = false;
 });
 
 const goToHomePage = () => {
   router.push('/');
-  movieStore.resetMovieData();
+  movieStore.resetListData();
 };
 </script>
 
